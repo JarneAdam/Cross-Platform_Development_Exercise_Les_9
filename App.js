@@ -1,4 +1,6 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 import Header from './src/components/Header';
 import CardList from './src/components/CardList';
 import pokemon from './src/data/pokemon.js';
@@ -11,7 +13,8 @@ export default function App() {
   const shareAction = name => {};
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <StatusBar translucent={false} backgroundColor="#fff" />
       <Header title='Accessibility test' />
       <CardList
           data={pokemon}
@@ -19,13 +22,13 @@ export default function App() {
           bookmarkAction={bookmarkAction}
           shareAction={shareAction}
         />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 10,
-    backgroundColor: "#333"
+    backgroundColor: "#fff"
   }
 });

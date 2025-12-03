@@ -3,7 +3,12 @@ import { View, Text, StyleSheet } from "react-native";
 
 const Header = ({ title }) => {
   return (
-    <View style={styles.header}>
+    <View 
+      style={styles.header}
+      accessible={true}
+      accessibilityRole="header"
+      accessibilityLabel="Voorbeeld van een toegankelijke app"
+    >
       <Text style={styles.header_text}>{title}</Text>
     </View>
   );
@@ -12,11 +17,11 @@ const Header = ({ title }) => {
 const styles = StyleSheet.create({
   header: {
     paddingTop: 10,
-    backgroundColor: "#3e3e3e"
+    backgroundColor: "#ccc"
   },
   header_text: {
     fontWeight: "bold",
-    color: "#FFF",
+    color: "#333",
     fontSize: 17,
     textAlign: "center",
     padding: 10
