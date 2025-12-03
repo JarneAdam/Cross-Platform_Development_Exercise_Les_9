@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import Header from './src/components/Header';
 import CardList from './src/components/CardList';
@@ -13,16 +13,18 @@ export default function App() {
   const shareAction = name => {};
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar translucent={false} backgroundColor="#fff" />
-      <Header title='Accessibility test' />
-      <CardList
-          data={pokemon}
-          viewAction={viewAction}
-          bookmarkAction={bookmarkAction}
-          shareAction={shareAction}
-        />
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar translucent={false} backgroundColor="#fff" />
+        <Header title='Accessibility test' />
+        <CardList
+            data={pokemon}
+            viewAction={viewAction}
+            bookmarkAction={bookmarkAction}
+            shareAction={shareAction}
+          />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
